@@ -20,7 +20,7 @@ class Orders extends Component {
     removeOrderListHandler = () => {
         this.props.removeOrderList()
         this.setState({orders: null});
-        axios.delete('/orders', { crossdomain: true })
+        axios.delete('/orders', { crossdomain: true, mode:  })
                     .then(response => {
                 console.log(response)
             });
