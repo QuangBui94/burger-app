@@ -1,0 +1,17 @@
+.Order {
+    margin: 10px auto;
+    border: 1px solid #eee;
+    box-shadow: 1px 2px 0 #ccc;
+    box-sizing: border-box;
+    padding: 40px;
+    display: flex;
+}
+
+@media (max-width: 700px) {
+    .Order {
+        display: flex;
+        flex-flow: column;
+        text-align: center;
+    }
+}
+

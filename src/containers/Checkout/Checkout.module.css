@@ -1,0 +1,11 @@
+.Checkout {
+    width: 100%;
+    text-align: center;
+}
+
+/* @media (max-width: 500px) {
+    .Checkout {
+        width: 400px;
+        margin: auto;
+    }
+} */
