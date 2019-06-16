@@ -106,10 +106,12 @@ class Auth extends Component {
         let authForm = 
                 <div className={styles.Auth}>
                     <form onSubmit={this.submitHandler}>
+                        <h1>Sign in</h1>
                         {form}
-                        <Button btnType="Success" disabled={!this.state.isFormValid}>SUBMIT</Button>
+                        <Button btnType="Submit" disabled={!this.state.isFormValid}>SUBMIT</Button>
                     </form>
-                    <Button btnType="Danger" click={() => this.authModeHandler(this.state.isSignup)}>SWITCH TO {this.state.isSignup ? 'SIGNIN' : 'SIGNUP'}</Button> 
+                    <p className={styles.pElement}>New to Burger App ?</p>
+                    <Button btnType="Switch" click={() => this.authModeHandler(this.state.isSignup)}>SWITCH TO {this.state.isSignup ? 'SIGNIN' : 'SIGNUP'}</Button> 
                 </div>  
 
         if (this.props.spinner) {

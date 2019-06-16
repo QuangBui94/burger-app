@@ -1,6 +1,8 @@
+/* #cf8f2e */
+
 .BuildControls {
     width: 100%;
-    background-color: #cf8f2e;
+    background-color: #f39d12d8;
     display: flex;
     flex-flow: column;
     align-items: center;

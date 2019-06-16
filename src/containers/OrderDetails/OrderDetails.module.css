@@ -1,0 +1,92 @@
+.OrderDetails {
+    display: block;
+    width: 50%;
+    margin: auto;
+    border: 1px solid #eee;
+    box-shadow: 0 10px 20px rgba(0,0,0,.2);
+    padding: 40px 20px 60px 20px;
+    margin-bottom: 90px;
+    background-color: #f4f2f2;
+}
+
+.OrderDetails table {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.OrderDetails table tr {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 5px;
+}
+
+.OrderDetails table tr:first-child {
+    margin-bottom: 10px;
+    color: grey;
+}
+
+.OrderDetails table tr:last-child {
+    margin-bottom: 0;
+}
+
+.OrderDetails table th, td {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 30%;
+    margin: auto;
+    margin: 1%;
+    text-align: left;
+}
+
+.OrderDetails table th:last-child {
+    text-align: right;
+}
+
+.OrderDetails table td:last-child {
+    text-align: right;
+}
+
+.OrderSection {
+    width: 95%;
+    border-bottom: 1px dashed grey;
+    margin: auto;
+    margin-bottom: 25px;
+    padding-bottom: 25px;
+}
+
+.OrderSection:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.OrderDetails li {
+    list-style: none;
+    margin-top: 10px;
+}
+
+.OrderSection li:first-child {
+    margin-top: 40px;
+}
+
+.elementDelivery {
+    display: inline-block;
+    width: 50%;
+    margin: auto;
+    padding: 10px;
+    padding-left: 0;
+    box-sizing: border-box;
+}
+
+@media (max-width: 500px) {
+    .OrderDetails table tr {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        margin-bottom: 5px;
+        height: 40px;
+    }  
+}
+

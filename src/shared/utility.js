@@ -5,6 +5,10 @@ export const objectUpdated = (oldObject, updatedProp) => {
     }
 };
 
+export const arrayUpdated = (oldArray, updatedElement) => {
+    return [...oldArray, updatedElement]
+}
+
 export const validationHandler = (value, rules) => {
     let isValid = true;
     if (!rules) {

@@ -17,8 +17,9 @@ const SideDrawer = (props) => {
             <BackDrop order={props.openDrawer} modalClosed={props.closeDrawer}/>
             <div className={classDrawer.join(' ')} onClick={props.closeDrawer}>
                 <Logo 
-                height='10%'
-                padding='20px 35px'/>
+                height='15%'
+                padding='20px 35px'
+                backgroundColor='#f4f2f2'/>
                 <NavigationItems 
                     link1={'My Burger'}
                     link2={'Orders'}

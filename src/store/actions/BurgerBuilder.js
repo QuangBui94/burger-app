@@ -40,8 +40,8 @@ export const removeIngredient = (name) => {
     }
 }
 
-export const purchaseInit = () => {
-    return {
-        type: actionTypes.PURCHASE_INIT
-    }
-}
+// export const purchaseInit = () => {
+//     return {
+//         type: actionTypes.PURCHASE_INIT
+//     }
+// }

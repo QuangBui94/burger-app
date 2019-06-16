@@ -3,7 +3,7 @@ import { objectUpdated } from '../../shared/utility';
 
 const initialState = {
     ingredients: null,
-    price: 0,
+    price: 4,
     purchaseStatus: true,
     error: false,
 };
@@ -13,7 +13,7 @@ const INGREDIENT_PRICES = {
     cheese: 0.5, 
     salad: 0.6,
     bacon: 0.8
-}
+};
 
 const reducer = (state = initialState, action) => {
     const newIngredient = {...state.ingredients};
@@ -48,7 +48,7 @@ const reducer = (state = initialState, action) => {
         case actionTypes.REMOVE_INGREDIENT:
             return removeIngredientHandler(state, action);
         case actionTypes.FETCH_INGREDIENT:
-            return objectUpdated(state, {ingredients: action.ingredient, price: 0});
+            return objectUpdated(state, {ingredients: action.ingredient, price: 4});
         case actionTypes.SET_INGREDIENT_FAILED:
             return objectUpdated(state, {error: true});
         default:

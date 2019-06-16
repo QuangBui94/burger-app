@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Aux from 'react-aux';
+import { withRouter } from 'react-router-dom';
 
 import styles from './ContactData.module.css';
 import Button from '../../UI/Button/Button';
 import Spinner from '../../UI/Spinner/Spinner';
 import Input from '../../UI/Input/Input';
-import * as actionCreators from '../../store/actions/index'
+import Backdrop from '../../UI/Backdrop/Backdrop';
+import * as actionCreators from '../../store/actions/index';
 import { objectUpdated, validationHandler } from '../../shared/utility';
 
 class ContactData extends Component {
@@ -50,7 +53,7 @@ class ContactData extends Component {
                 value: '',
                 validation: {
                     required: true,
-                    maxLength: 5
+                    maxLength: 20
                 },
                 valid: false,
                 touched: false
@@ -83,16 +86,16 @@ class ContactData extends Component {
                 },
                 touched: false
             },
-            deliverMethod: {
+            Delivery: {
                 elementType: 'select',
                 elementConfig: {
                     options: [
-                        {value: 'fastest', display: 'Fastest'},
-                        {value: 'cheapest', display: 'Cheapest'}
+                        {value: 'Fastest', display: 'Fastest'},
+                        {value: 'Cheapest', display: 'Cheapest'}
                         ]
                 },
                 label: 'Delivery:',
-                value: 'fastest',
+                value: 'Fastest',
                 valid: true
             }
         },
@@ -124,15 +127,14 @@ class ContactData extends Component {
             dataForm[elementIndentifier] = this.state.orderForm[elementIndentifier].value;
         }
         const order = {
-            ingredient: this.props.ingredients,
-            price: this.props.price,
+            cart: this.props.cart,
             orderForm: dataForm,
             userId: this.props.userId
         }
 
         this.props.orderBurger(order, this.props.token)
-        this.props.purchasedOrderHandler()
-        alert('Your order is completed');
+        this.props.purchasedOrderHandler(dataForm)
+        this.props.history.push('/order-details')
     }
 
     render() {
@@ -151,16 +153,29 @@ class ContactData extends Component {
         <form onSubmit={this.orderHandler}>
             <h4>Enter your contact data here</h4>
             {input}
+            <Button btnType="Danger" click={this.props.click}>Cancel</Button>
             <Button btnType="Success" disabled={!this.state.isFormValid}>Order</Button>
         </form>
         
         if (this.props.spinner) {
             form = <Spinner show/>
         }
+
+        let contactDataClasses = [styles.ContactData];
+
+        if (this.props.order) {
+            contactDataClasses.push(styles.ContactDataOpen)
+        } else {
+            contactDataClasses.push(styles.ContactDataClose)
+        }
+
         return (
-            <div className={styles.ContactData}>
-                {form}
-            </div>
+            <Aux>
+                <Backdrop order modalClosed={this.props.click}/> 
+                <div className={contactDataClasses.join(' ')}>
+                    {form}
+                </div>
+            </Aux> 
         )
     }
 }
@@ -171,15 +186,16 @@ const mapStateToProps = state => {
         price: state.burgerBuilder.price,
         spinner: state.order.spinner,
         token: state.auth.tokenId,
-        userId: state.auth.userId
+        userId: state.auth.userId,
+        cart: state.order.cart
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
         orderBurger: (order, token) => dispatch(actionCreators.orderBurger(order, token)),
-        purchasedOrderHandler: () => dispatch(actionCreators.purchasedOrderHandler())
+        purchasedOrderHandler: (dataForm) => dispatch(actionCreators.purchasedOrderHandler(dataForm))
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ContactData);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ContactData));

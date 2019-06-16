@@ -1,0 +1,7 @@
+[
+    {
+      "origin": ["https://burger-app-7aaf7.firebaseapp.com"],
+      "method": ["GET"],
+      "maxAgeSeconds": 3600
+    }
+]

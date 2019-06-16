@@ -1,19 +1,69 @@
 .ContactData {
+    position: fixed;
+    top: 5%;
+    left: 5%;
+    border-radius: 20px;
+    z-index: 300;
     width: 80%;
     margin: 20px auto;
     border: 1px solid #ccc;
-    box-shadow: 1px 2px 0 #eee;
+    box-shadow: 0px 2px 2px #eee;
     padding: 20px;
-    text-align: center
+    text-align: center;
+    background-color: white;
+    transition: all 0.3s ease-out;
 }
 
 @media (min-width: 500px) {
     .ContactData {
-        width: 60%;
+        left: calc((100% - 510px) / 2);
+        max-width: 510px;
     }
 }
 
 input {
     display: block;
     margin: 10px;
+}
+
+.ContactDataOpen {
+    animation: ModalOpen 0.3s ease-out forwards;
+}
+
+.ContactDataClose {
+    animation: ModalClose 0.3s ease-in forwards;
+}
+
+@keyframes ModalOpen {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+
+    50% {
+        opacity: 0.8;
+        transform: translateY(20%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes ModalClose {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    50% {
+        opacity: 0.8;
+        transform: translateY(20%);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
 }

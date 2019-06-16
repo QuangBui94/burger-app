@@ -2,14 +2,18 @@ export {
     addIngredient,
     removeIngredient,
     fetchIngredient,
-    purchaseInit
+    // purchaseInit
 } from './BurgerBuilder';
 
 export {
     orderBurger,
-    showOrder,
+    showCart,
     removeSingleOrder,
-    purchasedOrderHandler
+    purchasedOrderHandler,
+    addCart,
+    removeItemCart,
+    addItemCart,
+    showOrder
 } from './Order';
 
 export {

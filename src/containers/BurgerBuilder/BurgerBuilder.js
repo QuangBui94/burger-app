@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Aux from 'react-aux';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
 
 import Modal from '../../UI/Modal/Modal';
 import Burger from '../../components/Burger/Burger';
@@ -22,7 +21,7 @@ class BurgerBuilder extends Component {
     }
 
     orderContinueHandler = () => {
-        this.props.purchaseInit()
+        this.props.history.push('/checkout')
     }
 
     orderCancelHandler = () => {
@@ -57,15 +56,10 @@ class BurgerBuilder extends Component {
         if (this.props.ingredients) {
             burger = <Burger ingredient={this.props.ingredients}/>
         }
-        let burgerBuilder = null;
-        if (!this.props.purchased) {
-            burgerBuilder = this.props.willPurchase ? <Redirect to="/checkout" /> : null;
-        }
         return (
             <Aux>
-                {burgerBuilder}
                 <Modal 
-                    ingredients={this.props.ingredient} 
+                    ingredients={this.props.ingredients} 
                     order={this.state.showOrder}
                     modalClosed={this.orderCancelHandler}
                     orderCancelled={this.orderCancelHandler}
@@ -92,9 +86,10 @@ const mapStateToProps = state => {
         totalPrice: state.burgerBuilder.price,
         purchaseStatus: state.burgerBuilder.purchaseStatus,
         error: state.burgerBuilder.error,
-        willPurchase: state.order.willPurchase,
+        // willPurchase: state.order.willPurchase,
         purchased: state.order.purchased,
-        isAuth: state.auth.tokenId
+        isAuth: state.auth.tokenId,
+        cancelPurchase: state.order.cancelPurchase
     }
 }
 
@@ -104,7 +99,7 @@ const mapDispatchToProps = dispatch => {
         decreaseIngreHandler: (ingreName) => dispatch(actionsCreator.removeIngredient(ingreName)),
         // purchasingStatusHandler: () => dispatch({type: actionTypes.PURCHASE_STATUS}),
         setIngredient: () => dispatch(actionsCreator.fetchIngredient()),
-        purchaseInit: () => dispatch(actionsCreator.purchaseInit())
+        // purchaseInit: () => dispatch(actionsCreator.purchaseInit())
     }
 }
 

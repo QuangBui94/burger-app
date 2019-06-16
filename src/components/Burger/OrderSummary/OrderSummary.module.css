@@ -1,0 +1,59 @@
+.OrderSummary {
+    margin: 0;
+    padding: 0;
+}
+
+.OrderSummary li {
+    list-style: none;
+}
+
+.OrderSummary table {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.OrderSummary table tr {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 5px;
+}
+
+.OrderSummary table tr:first-child {
+    margin-bottom: 10px;
+    color: grey;
+}
+
+.OrderSummary table tr:last-child {
+    margin-bottom: 0;
+}
+
+.OrderSummary table th, td {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 30%;
+    margin: 1%;
+    text-align: left;
+}
+
+.OrderSummary table th:last-child {
+    text-align: right;
+}
+.OrderSummary table td:last-child {
+    text-align: right;
+}
+
+.section {
+    width: 95%;
+    border-bottom: 1px dashed #ccc;
+    margin: auto;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+
+.section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}

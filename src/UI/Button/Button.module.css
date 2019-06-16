@@ -1,29 +1,82 @@
 .Button {
-    background-color: transparent;
-    border: none;
-    color: white;
+    height: 40px;
+    border-radius: 10px;
     outline: none;
     cursor: pointer;
     font: inherit;
     padding: 10px;
-    margin: 10px auto;
+    margin: 20px;
     font-weight: bold;
+    text-align: center;
+    background-size: 300% 100%;
+    border: none;
 }
 
 .Button:first-of-type {
     margin-left: 0;
-    padding-left: 0;
 }
 
 .Success {
-    color: #5C9210;
+    background-image: linear-gradient(to left, #f39c12, #ff9a44, #ef9d43, #e67e22);
+    color: #fff;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 15px 0 #e67e22;
 }
 
 .Danger {
-    color: #944317;
+    color: grey;
+    background-color: #eee;
+}
+
+.Success:hover {
+    background-position: 100% 0;
+    transition: all 0.4s ease;
+}
+
+.Danger:hover {
+    color: rgba(77, 77, 77, 0.616);
 }
 
 .Button:disabled {
+    background-image: none;
+    box-shadow: none;
     color: #ccc;
     cursor: not-allowed;
+}
+
+.Submit {
+    width: 100%;
+    background-color: #e67e22;
+    color: black;
+    font-weight: 300;
+    transition: all 0.3s ease;
+}
+
+.Submit:disabled {
+    background-color: white;
+    color: #ccc;
+    cursor: not-allowed;
+    border: none;
+}
+
+.Submit:active, .Submit:hover:enabled{
+    background-color: white;
+    border: 1px solid #e67e22;
+    color: #e67e22;
+    font-weight: 700;
+}
+
+.Switch {
+    width: 100%;
+    background-color: #62626257;
+    color: black;
+    font-weight: 200;
+    transition: all 0.3s ease;
+}
+
+.Switch:hover {
+    background-color: white;
+    border: 1px solid #7f8c8d;
+    color: #7f8c8d;
+    font-weight: 700;
 }

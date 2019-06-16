@@ -2,8 +2,8 @@ import React, { Component} from 'react';
 import { NavLink, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
+import Icon from '../../../UI/Icon/Icon';
 import styles from './NavigationItems.module.css';
-
 
 class NavigationItems extends Component {
     render() {
@@ -15,8 +15,8 @@ class NavigationItems extends Component {
         if(this.props.isAuthenticated) {
             linkArr = [
                 {link: 'My Burger', to:'/'}, 
-                {link: 'Orders', to:'/orders'},
                 {link: 'Log out', to:'/logout'},
+                {link: <Icon class={'cart'}/>, to:'/orders'}
             ];
         }
         return (

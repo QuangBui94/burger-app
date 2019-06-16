@@ -1,19 +1,47 @@
 .Auth {
-    width: 80%;
+    width: 60%;
     margin: 20px auto;
     border: 1px solid #ccc;
+    border-radius: 8px;
     box-shadow: 1px 2px 0 #eee;
-    padding: 20px;
-    text-align: center
+    padding: 40px;
+    box-sizing: border-box;
 }
 
 @media (min-width: 500px) {
     .Auth {
-        width: 60%;
+        width: 30%;
     }
 }
 
 input {
     display: block;
     margin: 10px;
+}
+
+.pElement {
+    text-align: center;
+    color: grey;
+    font-size: 0.9rem;
+}
+
+.pElement:before,
+.pElement:after {
+    display: inline-block;
+    height: 1px;
+    vertical-align: middle;
+    content: "";
+    position: relative;
+    background-color: #ccc;
+    width: 30%;
+}
+
+.pElement:before {
+    right: 0.5rem;
+    margin-left: -50%;
+}
+
+.pElement:after {
+    left: 0.5rem;
+    margin-right: -50%;
 }

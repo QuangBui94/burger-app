@@ -1,6 +1,10 @@
 .Icon {
     display: inline-block;
-    font-size: 1.5rem;
-    padding-right: 10px;
-    padding-top: 
+    font-size: 1.8rem;
+    margin: auto;
+    cursor: pointer;
+}
+
+.IconDisable {
+    pointer-events: none;
 }
